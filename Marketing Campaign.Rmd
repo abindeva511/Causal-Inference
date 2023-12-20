@@ -1,4 +1,6 @@
 ```{r}
+
+
 rm(list=ls())
 library(readxl)
 library(ggplot2)
@@ -78,6 +80,7 @@ preddefault2<-ifelse(probdefault2 > 0.5, 1,0) #at what level should we say prob(
 preddata["Predicted_churn_rate"] = probdefault2
 preddata["Predicted_Churn"] = preddefault2
 preddata["Retention rate"] = 1-probdefault2
+
 
 confMat2 = confusionMatrix(data = as.factor(preddefault2),reference = as.factor(mydata$Churned),positive = "1") #try from 0.2 #to 0.7
 confMat2 ###Note, because of how this matrix is strutured, 0,0 becomes true positive -- thus we specify positive as 1
